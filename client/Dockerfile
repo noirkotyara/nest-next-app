@@ -1,32 +1,29 @@
-#FROM node:17.3.0-alpine
-#
-#RUN mkdir -p /usr/app/client
-#WORKDIR /usr/app/client
-#
-#COPY package.json .
-#RUN npm install
-#COPY . .
-#
-#RUN npm run build
-#
-#CMD ["npm", "start"]
-
 FROM node:17.3.0-alpine As development
 
+RUN mkdir -p /usr/app/client
 WORKDIR /usr/app/client
 
-COPY package.json .
-RUN npm install
+COPY package*.json ./
+RUN npm install --only=development
 
 COPY . .
 
 RUN npm run build
 
 
-FROM nginx as production
+FROM node:17.3.0-alpine as production
 
-#COPY .nginx/nginx.conf /etc/nginx/nginx.conf
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 
-RUN #rm -rf /usr/share/nginx/html/*
+WORKDIR /usr/app/client
 
-COPY --from=development /usr/app/client/.next /usr/share/nginx/html
+COPY package*.json ./
+
+RUN npm install --only=production
+
+COPY . .
+
+COPY --from=development /usr/app/client/dist ./dist
+
+CMD ["npm", "run", "start"]
