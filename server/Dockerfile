@@ -1,24 +1,29 @@
-FROM node:17.3.0-alpine As development
+FROM node:17.3.0-alpine AS development
 
+RUN mkdir -p /usr/app/server
 WORKDIR /usr/app/server
 
 COPY package.json .
-RUN npm install
+
+RUN npm install --only=development
 
 COPY . .
 
 RUN npm run build
 
+FROM node:17.3.0-alpine as production
 
-FROM nginx as production
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 
-#ARG NODE_ENV=production
-#ENV NODE_ENV=${NODE_ENV}
+WORKDIR /usr/app/server
 
-#WORKDIR usr/app/server
+COPY package.json .
 
-#COPY package.json .
+RUN npm install --only=production
 
-COPY --from=development /usr/app/server/dist /usr/share/nginx/html
+COPY . .
 
-#CMD ["node", "dist/main"]
+COPY --from=development /usr/app/server/dist ./dist
+
+CMD ["npm", "run", "start:prod"]
