@@ -9,7 +9,7 @@ script:
   - docker run noirkotyara/sell-client npm run lint
 
 deploy:
-  provider: "elasticbeanstalk"
+  provider: elasticbeanstalk
   region: "us-east-1"
   app: "sell-everywhere-server"
   env: "Selleverywhereserver-env"
