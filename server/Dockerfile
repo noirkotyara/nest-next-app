@@ -28,6 +28,7 @@ COPY --from=development /usr/app/server/dist ./dist
 
 CMD ["npm", "run", "start:prod"]
 
+#not works
 #FROM nginx
 #EXPOSE 80
 #COPY --from=development /usr/app/server/dist /usr/share/nginx/html
