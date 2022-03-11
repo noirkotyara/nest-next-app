@@ -7,3 +7,15 @@ before_install:
 script:
   - docker run noirkotyara/sell-server npm run test:cov
   - docker run noirkotyara/sell-client npm run lint
+
+deploy:
+  provider: "elasticbeanstalk"
+  region: "us-east-1"
+  app: "sell-everywhere-server"
+  env: "Selleverywhereserver-env"
+  bucket_name: "elasticbeanstalk-us-east-1-146417388463"
+  bucket_path: "sell-everywhere-server"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
