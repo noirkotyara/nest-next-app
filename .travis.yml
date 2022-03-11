@@ -2,11 +2,9 @@ sudo: required
 
 before_install:
   - docker build -t noirkotyara/sell-server -f ./server/Dockerfile --target development ./server
-  - docker build -t noirkotyara/sell-client -f ./client/Dockerfile --target development ./client
 
 script:
   - docker run noirkotyara/sell-server npm run test:cov
-  - docker run noirkotyara/sell-client npm run lint
 
 deploy:
   provider: elasticbeanstalk
