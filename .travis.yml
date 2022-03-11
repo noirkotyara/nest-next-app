@@ -1,7 +1,7 @@
 sudo: required
 
 before_install:
-  - docker build -t noirkotyara/sell-server -f ./server/Dockerfile --target production ./server
+  - docker build -t noirkotyara/sell-server -f ./server/Dockerfile --target development ./server
 
 script:
   - docker run noirkotyara/sell-server npm run test:cov
