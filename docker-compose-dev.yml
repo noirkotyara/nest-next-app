@@ -1,0 +1,42 @@
+version: '3.1'
+
+services:
+  redis-server:
+    image: redis
+    ports:
+      - "6380:6380"
+
+  sell-server:
+    restart: 'on-failure'
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      target: development
+    command: npm run start:dev
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./server:/usr/app/server
+      - /usr/app/server/node_modules
+
+
+  sell-client:
+    restart: 'on-failure'
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: development
+    command: npm run dev
+    ports:
+      - "3005:3005"
+    volumes:
+      - ./client:/usr/app/client
+      - /usr/app/client/node_modules
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: example
