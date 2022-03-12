@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "sell-server",
+    "name": "nest-next-app-server",
     "builds": [
         {
             "src": "./dist/main.js",
