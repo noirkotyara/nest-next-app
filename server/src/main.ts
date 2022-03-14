@@ -11,6 +11,7 @@ async function bootstrap() {
   app.enableCors({
     credentials: true,
     origin: 'https://nest-next-app.vercel.app/',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   });
 
   await app.listen(8081);
