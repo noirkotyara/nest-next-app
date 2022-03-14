@@ -3,20 +3,11 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  console.log('hello2', process.env.CLIENT_SERVER_HOST);
 
-  const whitelist = ['http://localhost:3005', process.env.CLIENT_SERVER_HOST];
-
-  app.enableCors({
-    credentials: true,
-    origin:  (origin, callback) => {
-      if (!origin || whitelist.indexOf(origin) !== -1) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    },
-  });
+  app.enableCors({ credentials: true, origin: process.env.CLIENT_SERVER_HOST });
 
   await app.listen(8081);
 }
+
 bootstrap();

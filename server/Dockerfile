@@ -5,7 +5,7 @@ WORKDIR /usr/app/server
 
 COPY package.json .
 
-RUN npm install
+RUN npm install --only=development
 
 COPY . .
 

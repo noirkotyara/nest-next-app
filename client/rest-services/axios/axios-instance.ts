@@ -1,9 +1,6 @@
 import axios from "axios";
 
-console.log('this is sell server', process.env.SELL_SERVER_HOST)
-
 export const httpClient = axios.create({
   baseURL: process.env.SELL_SERVER_HOST,
   withCredentials: true,
 });
-
