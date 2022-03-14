@@ -2,8 +2,21 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { useEffect, useState } from "react";
+import { httpClient } from "../rest-services/axios/axios-instance";
 
 const Home: NextPage = () => {
+  const [res, setRes] = useState<null | string>(null);
+
+  useEffect(() => {
+    getterInfo();
+  }, []);
+
+  const getterInfo = async () => {
+    const res = await httpClient.get("/");
+    setRes(res.data);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +27,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js999!</a>
+          Welcome to <a href="https://nextjs.org">{res}</a>
         </h1>
 
         <p className={styles.description}>
