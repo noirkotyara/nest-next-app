@@ -1,9 +1,12 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
+require('dotenv').config({
+  path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
+});
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  console.log('hello2', process.env.CLIENT_SERVER_HOST);
 
   app.enableCors({ credentials: true, origin: process.env.CLIENT_SERVER_HOST });
 

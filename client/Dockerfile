@@ -4,7 +4,7 @@ RUN mkdir -p /usr/app/client
 WORKDIR /usr/app/client
 
 COPY package*.json ./
-RUN npm install --only=development
+RUN npm install --only=dev
 
 COPY . .
 
