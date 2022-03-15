@@ -8,10 +8,7 @@ require('dotenv').config({
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const whitelist = [
-    'https://nest-next-app.vercel.app',
-    'http://localhost:3005',
-  ];
+  const whitelist = [process.env.CLIENT_SERVER_HOST];
 
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -21,13 +18,10 @@ async function bootstrap() {
   });
 
   app.enableCors({
-    origin: function (origin, callback) {
-      console.log('origin', origin);
+    origin: (origin, callback) => {
       if (!origin || whitelist.indexOf(origin) !== -1) {
-        console.log('allowed cors for:', origin);
         callback(null, true);
       } else {
-        console.log('blocked cors for:', origin);
         callback(new Error('Not allowed by CORS'));
       }
     },

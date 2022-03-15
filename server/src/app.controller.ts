@@ -11,8 +11,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return (
-      this.appService.getHello() + this.appConfig.get('app.clientServerHost')
-    );
+    return this.appService.getHello();
   }
 }
