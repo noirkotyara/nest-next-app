@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const whitelist = [
-    'https://nest-next-app.vercel.app/',
+    'https://nest-next-app.vercel.app',
     'http://localhost:3005',
   ];
 
