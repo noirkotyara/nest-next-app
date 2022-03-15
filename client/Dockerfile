@@ -4,7 +4,7 @@ RUN mkdir -p /usr/app/client
 WORKDIR /usr/app/client
 
 COPY package*.json ./
-RUN npm install --only=dev
+RUN npm install
 
 COPY . .
 
@@ -24,6 +24,6 @@ RUN npm install --only=production
 
 COPY . .
 
-COPY --from=development /usr/app/client/dist ./dist
+COPY --from=development /usr/app/client/.next ./.next
 
 CMD ["npm", "run", "start"]
