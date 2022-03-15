@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    SELL_SERVER_HOST: process.env.SELL_SERVER_HOST ?? "http://localhost:8081",
+    SELL_SERVER_HOST: process.env.SELL_SERVER_HOST,
   },
 };
 

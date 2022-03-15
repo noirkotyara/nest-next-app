@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   }, []);
 
   const getterInfo = async () => {
-    const res = await httpClient.get("/");
+    const res = await httpClient.get("");
     setRes(res.data);
   };
 
