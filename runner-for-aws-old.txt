@@ -1,0 +1,29 @@
+//Dockerrun.aws.json
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "sell-client",
+      "image": "noirkotyara/sell-client",
+      "hostname": "sell-client",
+      "essential": false
+    },
+    {
+      "name": "sell-server",
+      "image": "noirkotyara/sell-server",
+      "hostname": "sell-server",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "noirkotyara/nginx-server",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": {
+        "hostPort": 80,
+        "containerPort": 3443
+      },
+      "links": ["sell-client", "sell-server"]
+    }
+  ]
+}

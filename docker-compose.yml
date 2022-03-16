@@ -2,19 +2,20 @@ version: '3'
 
 services:
   nginx:
-    restart: always
-    build:
-      context: ./nginx
+    image: "noirkotyara/nginx-server"
+    mem_limit: 128m
+    hostname: nginx
     ports:
       - "3443:80"
     depends_on:
       - sell-client
       - sell-server
   sell-server:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
+    image: "noirkotyara/sell-server"
+    mem_limit: 128m
+    hostname: sell-server
+
   sell-client:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+    image: "noirkotyara/sell-client"
+    mem_limit: 128m
+    hostname: sell-client
