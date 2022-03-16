@@ -27,3 +27,10 @@ COPY . .
 COPY --from=development /usr/app/client/.next ./.next
 
 CMD ["npm", "run", "start"]
+
+FROM nginx as nginxproduction
+
+EXPOSE 3006
+
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=production /usr/app/client/.next /usr/share/nginx/html

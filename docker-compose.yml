@@ -18,4 +18,9 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
+      target: nginxproduction
+    command:
+      - npm run start
+    ports:
+      - "2000:3006"
 
