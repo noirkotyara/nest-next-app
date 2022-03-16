@@ -5,6 +5,19 @@ services:
     image: redis
     ports:
       - "6380:6380"
+    networks:
+      sell-everywhere:
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGDATA: /data/postgres
+    networks:
+      sell-everywhere:
 
   sell-server:
     restart: 'on-failure'
@@ -18,6 +31,8 @@ services:
     volumes:
       - ./server:/usr/app/server
       - /usr/app/server/node_modules
+    networks:
+      sell-everywhere:
 
 
   sell-client:
@@ -32,11 +47,9 @@ services:
     volumes:
       - ./client:/usr/app/client
       - /usr/app/client/node_modules
+    networks:
+      sell-everywhere:
 
-  db:
-    image: postgres
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: example
+
+networks:
+  sell-everywhere:
