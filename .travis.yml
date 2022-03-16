@@ -1,10 +1,26 @@
 sudo: required
 
+services:
+  - docker
+
 before_install:
-  - docker build -t noirkotyara/sell-server -f ./server/Dockerfile --target development ./server
+  - docker build -t noirkotyara/sell-server-dev --target development ./server
+  - docker build -t noirkotyara/sell-client-dev --target development ./client
 
 script:
-  - docker run noirkotyara/sell-server npm run test:cov
+  - docker run noirkotyara/sell-server-dev npm run test:cov
+  - docker run noirkotyara/sell-client-dev npm run lint
+
+after_success:
+  - docker build -t noirkotyara/nginx-server ./nginx
+  - docker build -t noirkotyara/sell-server --target production ./server
+  - docker build -t noirkotyara/sell-client --target production ./client
+#  login
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+#  publish images to the docker hub
+  - docker push noirkotyara/nginx-server
+  - docker push noirkotyara/sell-server
+  - docker push noirkotyara/sell-client
 
 #deploy:
 #  provider: elasticbeanstalk
