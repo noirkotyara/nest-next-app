@@ -9,7 +9,33 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "paths": {
+      "entities/*": [
+        "./src/entities/*"
+      ],
+      "utils": [
+        "./src/utils"
+      ],
+      "swagger/*": [
+        "./src/swagger/*"
+      ],
+      "middlewares/*": [
+        "./src/middlewares/*"
+      ],
+      "types": [
+        "./src/types"
+      ],
+      "modules": [
+        "./src/modules"
+      ],
+      "configs/*": [
+        "./src/configs/*"
+      ],
+      "test/*": [
+        "./test/*"
+      ]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,

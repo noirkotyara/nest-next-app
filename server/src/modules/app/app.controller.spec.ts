@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { ConfigService } from '@nestjs/config';
 import { Provider } from '@nestjs/common';
 
-import { configServiceValueMock } from '../../../test/utils/mock-config-service';
-import { createMockModule } from '../../../test/utils/mock-module';
+import { configServiceValueMock } from 'test/utils/mock-config-service';
+import { createMockModule } from 'test/utils/mock-module';
 
 describe('AppController', () => {
   let appController: AppController;
