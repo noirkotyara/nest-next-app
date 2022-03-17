@@ -25,10 +25,13 @@
     "@nestjs/config": "^1.2.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/typeorm": "^8.0.3",
+    "cross-env": "^7.0.3",
+    "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "cross-env": "^7.0.3"
+    "typeorm": "^0.2.45"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -40,8 +43,8 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "env-cmd": "^10.1.0",
     "dotenv": "^16.0.0",
+    "env-cmd": "^10.1.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -61,10 +64,20 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "^entities/(.*)$": "<rootDir>/src/entities/$1",
+      "^utils/(.*)$": "<rootDir>/src/utils/$1",
+      "^swagger/(.*)$": "<rootDir>/src/swagger/$1",
+      "^types/(.*)$": "<rootDir>/src/types/$1",
+      "^middlewares/(.*)$": "<rootDir>/src/middlewares/$1",
+      "^modules": "<rootDir>/src/modules/$1",
+      "^configs": "<rootDir>/configs/$1",
+      "^test/(.*)$": "<rootDir>/test/$1"
     },
     "collectCoverageFrom": [
       "**/*.(t|j)s"
