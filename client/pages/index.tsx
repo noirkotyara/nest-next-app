@@ -6,14 +6,16 @@ import { useEffect, useState } from "react";
 import { httpClient } from "../rest-services/axios/axios-instance";
 
 const Home: NextPage = () => {
-  const [res, setRes] = useState<null | string>(null);
+  const [res, setRes] = useState<
+    { name: string; description: string; price: number }[]
+  >([]);
 
   useEffect(() => {
     getterInfo();
   }, []);
 
   const getterInfo = async () => {
-    const res = await httpClient.get("");
+    const res = await httpClient.get("product");
     setRes(res.data);
   };
 
@@ -27,7 +29,16 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">{res}</a>
+          Welcome to
+          <a href="https://nextjs.org">
+            {res.map((resItem) => (
+              <div key={resItem.name}>
+                <div>{resItem.name}</div>
+                <div>{resItem.description}</div>
+                <div>{resItem.price}</div>
+              </div>
+            ))}
+          </a>
         </h1>
 
         <p className={styles.description}>
