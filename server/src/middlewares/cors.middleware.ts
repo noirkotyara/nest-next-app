@@ -4,7 +4,8 @@ import { NextFunction } from 'express';
 @Injectable()
 export class CorsMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
-    let allowedOrigins = [
+    // TODO: need to remove or change logic for cors
+    const allowedOrigins = [
       'http://localhost:3005',
       'https://nest-next-app.vercel.app/',
     ];

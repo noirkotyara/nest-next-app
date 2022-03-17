@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './modules/app/app.module';
 import { envVariables } from './utils/env-variables';
+import { VersioningType } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -26,6 +27,14 @@ async function bootstrap() {
       'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
     methods: 'GET,PUT,POST,DELETE,UPDATE,OPTIONS',
     credentials: true,
+  });
+
+  app.setGlobalPrefix('sell-server');
+
+  app.enableVersioning({
+    type: VersioningType.MEDIA_TYPE,
+    key: 'v=',
+    defaultVersion: '1',
   });
 
   await app.listen(8081);

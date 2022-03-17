@@ -1,7 +1,7 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { envVariables } from '../src/utils/env-variables';
+import { ConnectionOptions } from 'typeorm';
 
-export const ormConfig: TypeOrmModuleOptions = {
+export const ormConfig: ConnectionOptions = {
   type: 'postgres',
   host: envVariables.POSTGRES_HOST,
   port: parseInt(envVariables.POSTGRES_PORT),
