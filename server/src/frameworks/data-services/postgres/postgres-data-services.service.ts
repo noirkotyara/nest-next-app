@@ -1,0 +1,24 @@
+import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { IDataServices } from '../../../core/abstracts/data-services.abstract';
+import { PostgresProductRepository } from './repository/postgres-product-repository';
+import { ProductEntity } from '../../../core/entities/product/product.entity';
+
+@Injectable()
+export class PostgresDataServices
+  implements IDataServices, OnApplicationBootstrap
+{
+  products: PostgresProductRepository<ProductEntity>;
+
+  constructor(
+    @InjectRepository(ProductEntity)
+    private ProductRepository: Repository<ProductEntity>,
+  ) {}
+
+  onApplicationBootstrap() {
+    this.products = new PostgresProductRepository<ProductEntity>(
+      this.ProductRepository,
+    );
+  }
+}

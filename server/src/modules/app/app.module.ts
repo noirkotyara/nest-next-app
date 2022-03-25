@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { AppController } from '../../../controllers/app/app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { appConfig, ormConfig } from 'configs';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductHttpModule } from '../product/http/product-http.module';
+import { appConfig } from 'configs';
+import { DataServicesModule } from '../../services/data-services/data-services/data-services.module';
+import { ProductModule } from '../product.module';
 
 @Module({
   imports: [
@@ -13,8 +13,8 @@ import { ProductHttpModule } from '../product/http/product-http.module';
       isGlobal: true,
       load: [appConfig],
     }),
-    TypeOrmModule.forRoot(ormConfig),
-    ProductHttpModule,
+    DataServicesModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

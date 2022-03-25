@@ -24,8 +24,10 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^1.2.0",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/mapped-types": "^1.0.1",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.3",
+    "class-validator": "^0.13.2",
     "cross-env": "^7.0.3",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
@@ -75,8 +77,8 @@
       "^swagger/(.*)$": "<rootDir>/src/swagger/$1",
       "^types/(.*)$": "<rootDir>/src/types/$1",
       "^middlewares/(.*)$": "<rootDir>/src/middlewares/$1",
-      "^modules": "<rootDir>/src/modules/$1",
       "^configs": "<rootDir>/configs/$1",
+      "^modules": "<rootDir>/src/modules/$1",
       "^test/(.*)$": "<rootDir>/test/$1"
     },
     "collectCoverageFrom": [

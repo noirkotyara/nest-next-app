@@ -1,0 +1,35 @@
+import { IGenericRepository } from '../../../../core/abstracts/repository/generic-repository-services.abstract';
+import { DeepPartial, Repository } from 'typeorm';
+
+export class PostgresGenericRepository<T> implements IGenericRepository<T> {
+  repository: Repository<T>;
+
+  constructor(repository: Repository<T>) {
+    this.repository = repository;
+  }
+
+  getAll(): Promise<T[]> {
+    return this.repository.find();
+  }
+
+  get(id: string): Promise<T> {
+    return this.repository.findOne(id);
+  }
+
+  async create(item: T): Promise<T> {
+    // const createdItem = this._repository.create(item);
+    const savedItem = this.repository.save(item as DeepPartial<T>);
+    return savedItem[0];
+  }
+
+  async update(id: string, item: DeepPartial<T>) {
+    const foundedItem = await this.repository.findOne(id);
+    return this.repository.save({ ...item, ...foundedItem });
+  }
+
+  async deleteById(id: string): Promise<T> {
+    const deletedItem = await this.repository.findOne(id);
+    await this.repository.delete(id);
+    return deletedItem;
+  }
+}

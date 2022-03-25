@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { AppService } from '../../src/modules/app/app.service';
 import { ConfigService } from '@nestjs/config';
 
 @Controller()
@@ -10,7 +10,7 @@ export class AppController {
   ) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  receivePong(): string {
+    return this.appService.sendPing();
   }
 }
