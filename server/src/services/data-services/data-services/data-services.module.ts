@@ -3,6 +3,7 @@ import { PostgresDataServicesModule } from '../../../frameworks/data-services/po
 
 @Module({
   imports: [PostgresDataServicesModule],
+  providers: [],
   exports: [PostgresDataServicesModule],
 })
 export class DataServicesModule {}

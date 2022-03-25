@@ -16,10 +16,8 @@ export class PostgresGenericRepository<T> implements IGenericRepository<T> {
     return this.repository.findOne(id);
   }
 
-  async create(item: T): Promise<T> {
-    // const createdItem = this._repository.create(item);
-    const savedItem = this.repository.save(item as DeepPartial<T>);
-    return savedItem[0];
+  create(item: T): Promise<T> {
+    return this.repository.save(item as DeepPartial<T>);
   }
 
   async update(id: string, item: DeepPartial<T>) {

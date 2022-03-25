@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { IDataServices } from '../../../core/abstracts/data-services.abstract';
 import { PostgresDataServices } from './postgres-data-services.service';
-import { ProductEntity } from '../../../core/entities/product/product.entity';
+import { ProductEntity } from './entities/product.entity';
 
 @Module({
   imports: [

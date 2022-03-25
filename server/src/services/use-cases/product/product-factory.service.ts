@@ -1,21 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { ProductCreateDto } from '../../../core/dtos/product/product-create.dto';
-import { ProductEntity } from '../../../core/entities/product/product.entity';
+import { IProductEntity } from '../../../core/entities/product/product.entity';
 import { ProductBasicDto } from '../../../core/dtos/product/product-basic.dto';
 
 @Injectable()
 export class ProductFactoryService {
-  createNewEntity(productCreateDto: ProductCreateDto): ProductEntity {
-    const productEntity = new ProductEntity();
+  createNewEntity(productCreateDto: ProductCreateDto): IProductEntity {
+    const productEntity = new IProductEntity();
     productEntity.name = productCreateDto.name;
-    productEntity.description = productCreateDto.description;
-    productEntity.price = productCreateDto.priceNum;
-    productEntity.amount = productCreateDto.amount;
+    productCreateDto.description &&
+      (productEntity.description = productCreateDto.description);
+    productCreateDto.priceNum &&
+      (productEntity.price = productCreateDto.priceNum);
+    productCreateDto.amount && (productEntity.amount = productCreateDto.amount);
 
     return productEntity;
   }
 
-  transformToObject(productEntity: ProductEntity): ProductBasicDto {
+  transformToObject(productEntity: IProductEntity): ProductBasicDto {
     const productObject = new ProductBasicDto();
     productObject.name = productEntity.name;
     productObject.description = productEntity.description;
@@ -23,6 +25,7 @@ export class ProductFactoryService {
     productObject.amount = productEntity.amount;
     productObject.createdAt = productEntity.created_date;
     productObject.updatedAt = productEntity.updated_date;
+
     return productObject;
   }
 }

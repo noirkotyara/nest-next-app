@@ -1,10 +1,10 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './modules/app/app.module';
 import { envVariables } from './utils/env-variables';
 import { VersioningType } from '@nestjs/common';
+import { MainModule } from './modules/main.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(MainModule);
 
   const whitelist = [envVariables.CLIENT_SERVER_HOST];
 

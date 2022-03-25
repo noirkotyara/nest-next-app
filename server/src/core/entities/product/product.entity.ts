@@ -1,20 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
-import { BaseEntity } from '../base.entity';
+import { IBaseEntity } from '../base.entity';
 
-@Entity()
-export class ProductEntity extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+export class IProductEntity extends IBaseEntity {
   id: string;
 
-  @Column({ type: 'varchar', length: 100 })
   name: string;
 
-  @Column({ type: 'varchar', length: 5000 })
-  description: string;
+  description: string | null;
 
-  @Column({ type: 'decimal', precision: 7, scale: 2, default: 0 })
   price: number;
 
-  @Column({ type: 'int', default: 0 })
   amount: number;
 }

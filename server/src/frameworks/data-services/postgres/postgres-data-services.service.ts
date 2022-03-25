@@ -3,13 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { IDataServices } from '../../../core/abstracts/data-services.abstract';
 import { PostgresProductRepository } from './repository/postgres-product-repository';
-import { ProductEntity } from '../../../core/entities/product/product.entity';
+import { IProductEntity } from '../../../core/entities/product/product.entity';
+import { ProductEntity } from './entities/product.entity';
 
 @Injectable()
 export class PostgresDataServices
   implements IDataServices, OnApplicationBootstrap
 {
-  products: PostgresProductRepository<ProductEntity>;
+  products: PostgresProductRepository<IProductEntity>;
 
   constructor(
     @InjectRepository(ProductEntity)
