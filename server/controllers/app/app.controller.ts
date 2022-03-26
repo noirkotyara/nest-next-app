@@ -11,6 +11,7 @@ export class AppController {
 
   @Get()
   receivePong(): string {
+    console.log('receivePong');
     return this.appService.sendPing();
   }
 }
