@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { AppServicesService } from '../../src/services/use-cases/app/app-services.service';
 import { ConfigService } from '@nestjs/config';
 
-@Controller('sell-server')
+@Controller()
 export class AppController {
   constructor(
     private readonly appConfig: ConfigService,
@@ -11,7 +11,6 @@ export class AppController {
 
   @Get()
   receivePong(): string {
-    console.log('this is error occured');
     return this.appService.sendPing();
   }
 }
