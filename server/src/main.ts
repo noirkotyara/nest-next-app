@@ -8,13 +8,13 @@ async function bootstrap() {
 
   const whitelist = [envVariables.CLIENT_SERVER_HOST];
 
-  app.setGlobalPrefix('sell-server');
-
-  app.enableVersioning({
-    type: VersioningType.MEDIA_TYPE,
-    key: 'v=',
-    defaultVersion: '1',
-  });
+  // app.setGlobalPrefix('sell-server');
+  //
+  // app.enableVersioning({
+  //   type: VersioningType.MEDIA_TYPE,
+  //   key: 'v=',
+  //   defaultVersion: '1',
+  // });
 
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
