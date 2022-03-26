@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { AppServicesService } from '../../src/services/use-cases/app/app-services.service';
 import { ConfigService } from '@nestjs/config';
 
-@Controller()
+@Controller('sell-server')
 export class AppController {
   constructor(
     private readonly appConfig: ConfigService,
