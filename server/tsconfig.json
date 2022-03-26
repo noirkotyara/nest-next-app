@@ -10,7 +10,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": ".",
-    "paths": {
+//    "paths": {
 //      "entities": [
 //        "./src/core/entities"
 //      ],
@@ -44,7 +44,7 @@
 //      "test/*": [
 //        "./test/*"
 //      ]
-    },
+//    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
