@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppServicesService {
   sendPing(): string {
+    console.log('string');
     return 'Hello';
   }
 }
