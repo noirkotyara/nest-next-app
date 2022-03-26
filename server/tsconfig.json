@@ -11,39 +11,39 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "entities": [
-        "./src/core/entities"
-      ],
-      "utils": [
-        "./src/utils"
-      ],
-      "swagger/*": [
-        "./src/swagger/*"
-      ],
-      "core-abstracts/*": [
-        "./src/core/abstracts/*"
-      ],
-      "core-dtos/*": [
-        "./src/core/dtos/*"
-      ],
-      "core-entities/*": [
-        "./src/core/entities/*"
-      ],
-      "middlewares/*": [
-        "./src/middlewares/*"
-      ],
-      "types": [
-        "./src/types"
-      ],
-      "modules": [
-        "./src/modules"
-      ],
-      "configs/*": [
-        "./src/configs/*"
-      ],
-      "test/*": [
-        "./test/*"
-      ]
+//      "entities": [
+//        "./src/core/entities"
+//      ],
+//      "utils": [
+//        "./src/utils"
+//      ],
+//      "swagger/*": [
+//        "./src/swagger/*"
+//      ],
+//      "core-abstracts/*": [
+//        "./src/core/abstracts/*"
+//      ],
+//      "core-dtos/*": [
+//        "./src/core/dtos/*"
+//      ],
+//      "core-entities/*": [
+//        "./src/core/entities/*"
+//      ],
+//      "middlewares/*": [
+//        "./src/middlewares/*"
+//      ],
+//      "types": [
+//        "./src/types"
+//      ],
+//      "modules": [
+//        "./src/modules"
+//      ],
+//      "configs/*": [
+//        "./src/configs/*"
+//      ],
+//      "test/*": [
+//        "./test/*"
+//      ]
     },
     "incremental": true,
     "skipLibCheck": true,

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { IDataServices } from 'core-abstracts/data-services.abstract';
-import { ProductBasicDto } from 'core-dtos/product/product-basic.dto';
-import { ProductCreateDto } from 'core-dtos/product/product-create.dto';
 
 import { ProductFactoryService } from './product-factory.service';
+import { IDataServices } from '../../../core/abstracts/data-services.abstract';
+import { ProductBasicDto } from '../../../core/dtos/product/product-basic.dto';
+import { ProductCreateDto } from '../../../core/dtos/product/product-create.dto';
 
 @Injectable()
 export class ProductServicesService {
