@@ -32,12 +32,12 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // app.setGlobalPrefix('sell-server');
+  app.setGlobalPrefix('sell-server');
 
   app.enableVersioning({
     type: VersioningType.MEDIA_TYPE,
     key: 'v=',
-    // defaultVersion: '1',
+    defaultVersion: '1',
   });
 
   await app.listen(8081);
