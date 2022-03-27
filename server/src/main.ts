@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { VersioningType } from '@nestjs/common';
 
 require('dotenv').config({
   path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
@@ -29,6 +30,14 @@ async function bootstrap() {
       'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
     methods: 'GET,PUT,POST,DELETE,UPDATE,OPTIONS',
     credentials: true,
+  });
+
+  app.setGlobalPrefix('sell-server');
+
+  app.enableVersioning({
+    type: VersioningType.MEDIA_TYPE,
+    key: 'v=',
+    defaultVersion: '1',
   });
 
   await app.listen(8081);

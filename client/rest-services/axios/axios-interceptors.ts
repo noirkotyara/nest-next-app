@@ -6,6 +6,7 @@ export const setUpInterceptors = () => {
     ...config,
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json;v=1",
       "Access-Control-Allow-Origin": "*",
     },
   }));
