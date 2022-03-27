@@ -3,8 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import appConfig from '../config/app.config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ormConfig } from '../config/orm.config';
 
 require('dotenv').config({
   path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
