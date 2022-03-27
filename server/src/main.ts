@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
+});
+
 import { NestFactory } from '@nestjs/core';
 import { envVariables } from './utils/env-variables';
 import { VersioningType } from '@nestjs/common';
@@ -6,7 +10,7 @@ import { AppModule } from './modules/app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const whitelist = [envVariables.CLIENT_SERVER_HOST];
+  const whitelist = [process.env.CLIENT_SERVER_HOST];
 
   // app.setGlobalPrefix('sell-server');
   //
