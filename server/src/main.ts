@@ -1,11 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { envVariables } from './utils/env-variables';
+
+require('dotenv').config({
+  path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
+});
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const whitelist = [envVariables.CLIENT_SERVER_HOST];
+  const whitelist = [process.env.CLIENT_SERVER_HOST];
 
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
