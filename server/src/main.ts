@@ -3,7 +3,6 @@ require('dotenv').config({
 });
 
 import { NestFactory } from '@nestjs/core';
-import { envVariables } from './utils/env-variables';
 import { VersioningType } from '@nestjs/common';
 import { AppModule } from './modules/app.module';
 
@@ -12,13 +11,13 @@ async function bootstrap() {
 
   const whitelist = [process.env.CLIENT_SERVER_HOST];
 
-  // app.setGlobalPrefix('sell-server');
-  //
-  // app.enableVersioning({
-  //   type: VersioningType.MEDIA_TYPE,
-  //   key: 'v=',
-  //   defaultVersion: '1',
-  // });
+  app.setGlobalPrefix('sell-server');
+
+  app.enableVersioning({
+    type: VersioningType.MEDIA_TYPE,
+    key: 'v=',
+    defaultVersion: '1',
+  });
 
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
