@@ -6,6 +6,10 @@ import appConfig from '../config/app.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ormConfig } from '../config/orm.config';
 
+require('dotenv').config({
+  path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
+});
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -13,7 +17,7 @@ import { ormConfig } from '../config/orm.config';
       isGlobal: true,
       load: [appConfig],
     }),
-    TypeOrmModule.forRoot(ormConfig),
+    // TypeOrmModule.forRoot(ormConfig),
   ],
   controllers: [AppController],
   providers: [AppService],
