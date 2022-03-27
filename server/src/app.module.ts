@@ -13,7 +13,7 @@ import { ormConfig } from '../config/orm.config';
       isGlobal: true,
       load: [appConfig],
     }),
-    TypeOrmModule.forRoot(ormConfig),
+    // TypeOrmModule.forRoot(ormConfig),
   ],
   controllers: [AppController],
   providers: [AppService],
