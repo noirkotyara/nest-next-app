@@ -29,6 +29,7 @@ const test = {
       database: process.env.POSTGRES_DATABASE,
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
+      autoLoadEntities: true,
       ...(process.env.NODE_ENV === 'prod' && test),
     }),
   ],
