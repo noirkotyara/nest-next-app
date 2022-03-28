@@ -3,8 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { appConfig } from 'configs';
-import { ProductHttpModule } from '../product/http/product-http.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
