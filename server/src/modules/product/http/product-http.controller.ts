@@ -7,7 +7,6 @@ export class ProductHttpController {
 
   @Get()
   getAllProducts() {
-    console.log('hello');
     return this.productHttpService.findAll();
   }
 }
