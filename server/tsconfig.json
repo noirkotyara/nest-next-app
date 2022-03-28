@@ -29,8 +29,8 @@
       "modules": [
         "./src/modules"
       ],
-      "configs/*": [
-        "./src/configs/*"
+      "configs": [
+        "./src/configs"
       ],
       "test/*": [
         "./test/*"
