@@ -1,4 +1,13 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+require('dotenv').config({
+  path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
+});
+
+const sslCheck = {
+  ssl: {
+    rejectUnauthorized: false,
+  },
+};
 
 export const ormConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -9,4 +18,6 @@ export const ormConfig: TypeOrmModuleOptions = {
   database: process.env.POSTGRES_DATABASE,
   entities: ['dist/**/*.entity{.ts,.js}'],
   synchronize: true,
+  autoLoadEntities: true,
+  ...(!Boolean(process.env.POSTGRES_SSL_CHECK) && sslCheck),
 };

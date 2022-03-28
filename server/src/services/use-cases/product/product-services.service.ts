@@ -13,7 +13,6 @@ export class ProductServicesService {
   ) {}
 
   async getAllProducts(): Promise<ProductBasicDto[]> {
-    console.log('getAllProductsgetAllProductsgetAllProductsgetAllProducts');
     const productEntityList = await this.dataServices.products.getAll();
     const productList = productEntityList.map((productEntity) => {
       return this.productFactoryService.transformToObject(productEntity);
