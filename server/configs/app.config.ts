@@ -7,4 +7,5 @@ export const appConfig = registerAs('app', async () => ({
   username: process.env.POSTGRES_USERNAME,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DATABASE,
+  checkPostgresSSL: Boolean(process.env.POSTGRESS_SSL_CHECK),
 }));

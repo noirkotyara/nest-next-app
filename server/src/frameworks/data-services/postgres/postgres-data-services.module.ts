@@ -11,11 +11,13 @@ require('dotenv').config({
 
 console.log('LOGGER FOR HOST', process.env.POSTGRES_HOST);
 
-const test = {
+const sslCheck = {
   ssl: {
     rejectUnauthorized: true,
   },
 };
+
+console.log('check_check', Boolean(process.env.POSTGRES_SSL_CHECK));
 
 @Module({
   imports: [
@@ -30,7 +32,7 @@ const test = {
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
-      ...(process.env.NODE_ENV === 'prod' && test),
+      ...(Boolean(process.env.POSTGRES_SSL_CHECK) && sslCheck),
     }),
   ],
   providers: [
