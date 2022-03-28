@@ -19,6 +19,7 @@ export class ProductFactoryService {
 
   transformToObject(productEntity: IProductEntity): ProductBasicDto {
     const productObject = new ProductBasicDto();
+    productObject.id = productEntity.id;
     productObject.name = productEntity.name;
     productObject.description = productEntity.description;
     productObject.priceNum = productEntity.price;
