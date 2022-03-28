@@ -6,7 +6,7 @@ require('dotenv').config({
   path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
 });
 
-async function bootstrap() {
+export async function bootstrap() {
   const app = await NestFactory.create(MainModule);
 
   const whitelist = [process.env.CLIENT_SERVER_HOST];
