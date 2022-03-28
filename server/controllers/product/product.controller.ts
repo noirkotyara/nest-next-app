@@ -22,7 +22,6 @@ export class ProductController {
   @Post()
   @UsePipes(new ValidationPipe())
   createNewProduct(@Body() productInfo: ProductCreateDto) {
-    console.log('productInfo', productInfo);
     return this.productServices.createNewProduct(productInfo);
   }
 }
