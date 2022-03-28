@@ -14,7 +14,7 @@ import { appConfig } from '../../configs';
       isGlobal: true,
       load: [appConfig],
     }),
-    // DataServicesModule,
+    DataServicesModule,
     // ProductModule,
     AppModule,
   ],
