@@ -17,8 +17,6 @@ const sslCheck = {
   },
 };
 
-console.log('check_check', Boolean(process.env.POSTGRES_SSL_CHECK));
-
 @Module({
   imports: [
     TypeOrmModule.forFeature([ProductEntity]),
@@ -32,8 +30,7 @@ console.log('check_check', Boolean(process.env.POSTGRES_SSL_CHECK));
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
-      // ...(Boolean(process.env.POSTGRES_SSL_CHECK) && sslCheck),
-      ...sslCheck,
+      ...(!Boolean(process.env.POSTGRES_SSL_CHECK) && sslCheck),
     }),
   ],
   providers: [
