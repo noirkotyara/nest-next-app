@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './modules/app/app.module';
 import { VersioningType } from '@nestjs/common';
+import { AppModule } from 'moduleapp/app.module';
 
 require('dotenv').config({
   path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,

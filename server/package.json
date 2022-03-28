@@ -76,6 +76,7 @@
       "^types/(.*)$": "<rootDir>/src/types/$1",
       "^middlewares/(.*)$": "<rootDir>/src/middlewares/$1",
       "^modules": "<rootDir>/src/modules/$1",
+      "^moduleapp/(.*)$": "<rootDir>/src/modules/app/$1",
       "^configs": "<rootDir>/configs/$1",
       "^test/(.*)$": "<rootDir>/test/$1"
     },

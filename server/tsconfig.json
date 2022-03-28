@@ -29,6 +29,9 @@
       "modules": [
         "./src/modules"
       ],
+      "moduleapp/*": [
+        "./src/modules/app/*"
+      ],
       "configs": [
         "./src/configs"
       ],
