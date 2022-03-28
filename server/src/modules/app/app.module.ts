@@ -6,9 +6,9 @@ import { appConfig, ormConfig } from 'configs';
 import { ProductHttpModule } from '../product/http/product-http.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-require('dotenv').config({
-  path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
-});
+// require('dotenv').config({
+//   path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
+// });
 
 @Module({
   imports: [
@@ -17,7 +17,16 @@ require('dotenv').config({
       isGlobal: true,
       load: [appConfig],
     }),
-    TypeOrmModule.forRoot(ormConfig),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: process.env.POSTGRES_HOST,
+      port: parseInt(process.env.POSTGRES_PORT),
+      username: process.env.POSTGRES_USERNAME,
+      password: process.env.POSTGRES_PASSWORD,
+      database: process.env.POSTGRES_DATABASE,
+      entities: ['dist/**/*.entity{.ts,.js}'],
+      synchronize: true,
+    }),
     ProductHttpModule,
   ],
   controllers: [AppController],
