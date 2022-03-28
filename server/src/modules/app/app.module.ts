@@ -21,7 +21,6 @@ import { appConfig } from 'configs';
     //   entities: ['dist/**/*.entity{.ts,.js}'],
     //   synchronize: true,
     // }),
-    // ProductHttpModule,
   ],
   controllers: [AppController],
   providers: [AppService],
