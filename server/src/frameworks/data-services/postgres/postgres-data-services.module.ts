@@ -9,6 +9,8 @@ require('dotenv').config({
   path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
 });
 
+console.log('LOGGER FOR HOST', process.env.POSTGRES_HOST);
+
 @Module({
   imports: [
     TypeOrmModule.forFeature([ProductEntity]),
@@ -21,6 +23,9 @@ require('dotenv').config({
       database: process.env.POSTGRES_DATABASE,
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
   ],
   providers: [
