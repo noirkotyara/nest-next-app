@@ -10,35 +10,35 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": ".",
-//    "paths": {
-//      "entities/*": [
-//        "./src/entities/*"
-//      ],
-//      "utils": [
-//        "./src/utils"
-//      ],
-//      "swagger/*": [
-//        "./src/swagger/*"
-//      ],
-//      "middlewares/*": [
-//        "./src/middlewares/*"
-//      ],
-//      "types": [
-//        "./src/types"
-//      ],
-//      "modules": [
-//        "./src/modules"
-//      ],
-//      "moduleapp/*": [
-//        "./src/modules/app/*"
-//      ],
-//      "configs": [
-//        "./src/configs"
-//      ],
-//      "test/*": [
-//        "./test/*"
-//      ]
-//    },
+    "paths": {
+      "entities/*": [
+        "./src/entities/*"
+      ],
+      "utils": [
+        "./src/utils"
+      ],
+      "swagger/*": [
+        "./src/swagger/*"
+      ],
+      "middlewares/*": [
+        "./src/middlewares/*"
+      ],
+      "services/*": [
+        "./src/services/*"
+      ],
+      "types": [
+        "./src/types"
+      ],
+      "modules": [
+        "./src/modules"
+      ],
+      "configs": [
+        "./src/configs"
+      ],
+      "test/*": [
+        "./test/*"
+      ]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
