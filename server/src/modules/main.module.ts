@@ -14,11 +14,11 @@ import { appConfig } from '../../configs';
       isGlobal: true,
       load: [appConfig],
     }),
-    // DataServicesModule,
-    // ProductModule,
-    // AppModule,
+    DataServicesModule,
+    ProductModule,
+    AppModule,
   ],
-  controllers: [AppController],
-  providers: [AppServicesService],
+  controllers: [],
+  providers: [],
 })
 export class MainModule {}
