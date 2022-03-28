@@ -13,7 +13,7 @@ console.log('LOGGER FOR HOST', process.env.POSTGRES_HOST);
 
 const sslCheck = {
   ssl: {
-    rejectUnauthorized: true,
+    rejectUnauthorized: false,
   },
 };
 
