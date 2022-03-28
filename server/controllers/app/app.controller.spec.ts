@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppServicesService } from '../../src/services/use-cases/app/app-services.service';
 import { ConfigService } from '@nestjs/config';
 import { Provider } from '@nestjs/common';
 
@@ -19,15 +19,15 @@ describe('AppController', () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [createMockModule([configModule])],
       controllers: [AppController],
-      providers: [AppService],
+      providers: [AppServicesService],
     }).compile();
 
     appController = app.get<AppController>(AppController);
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World! Updated');
+    it('should return "Pong"', () => {
+      expect(appController.receivePong()).toBe('Pong');
     });
   });
 });

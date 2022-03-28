@@ -1,13 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { VersioningType } from '@nestjs/common';
-import { AppModule } from './modules/app/app.module';
+import { MainModule } from './modules/main.module';
 
 require('dotenv').config({
   path: `${process.cwd()}/.env.${process.env.NODE_ENV}`,
 });
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(MainModule);
 
   const whitelist = [process.env.CLIENT_SERVER_HOST];
 
