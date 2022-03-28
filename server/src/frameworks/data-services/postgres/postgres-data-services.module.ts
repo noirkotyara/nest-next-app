@@ -11,6 +11,12 @@ require('dotenv').config({
 
 console.log('LOGGER FOR HOST', process.env.POSTGRES_HOST);
 
+const test = {
+  ssl: {
+    rejectUnauthorized: true,
+  },
+};
+
 @Module({
   imports: [
     TypeOrmModule.forFeature([ProductEntity]),
@@ -23,9 +29,7 @@ console.log('LOGGER FOR HOST', process.env.POSTGRES_HOST);
       database: process.env.POSTGRES_DATABASE,
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
-      ssl: {
-        rejectUnauthorized: false,
-      },
+      ...(process.env.NODE_ENV === 'prod' && test),
     }),
   ],
   providers: [
