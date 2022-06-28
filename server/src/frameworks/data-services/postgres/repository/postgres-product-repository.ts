@@ -12,6 +12,14 @@ export class PostgresProductRepository<T>
     super(repository);
   }
 
+  getAll(): Promise<T[]> {
+    return super.getAll();
+  }
+
+  create(item: T): Promise<T> {
+    return super.create(item);
+  }
+
   getAllProductsByDeliverer(): Promise<T[]> {
     // TODO: need to change implementation
     return this.repository.find();
