@@ -1,3 +1,4 @@
+require('module-alias/register')
 import { NestFactory } from '@nestjs/core';
 import { VersioningType } from '@nestjs/common';
 import { MainModule } from './modules/main.module';

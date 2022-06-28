@@ -11,33 +11,15 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "entities/*": [
-        "./src/entities/*"
-      ],
-      "utils": [
-        "./src/utils"
-      ],
-      "swagger/*": [
-        "./src/swagger/*"
-      ],
-      "middlewares/*": [
-        "./src/middlewares/*"
-      ],
-      "services/*": [
-        "./src/services/*"
-      ],
-      "types": [
-        "./src/types"
-      ],
-      "modules": [
-        "./src/modules"
-      ],
-      "configs": [
-        "./src/configs"
-      ],
-      "test/*": [
-        "./test/*"
-      ],
+      "entities/*": ["src/entities/*"],
+      "utils": ["src/utils"],
+      "swagger/*": ["src/swagger/*"],
+      "middlewares/*": ["src/middlewares/*"],
+      "services/*": ["src/services/*"],
+      "types": ["src/types"],
+      "modules": ["src/modules"],
+      "configs": ["src/configs"],
+      "test/*": ["test/*"],
     },
     "references": [
       {
